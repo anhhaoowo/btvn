@@ -69,10 +69,10 @@ void bai3(int *a, int &n){
     printf("Enter k: ");
     scanf("%d",&k);
     if (k<0||k>=n){
-        printf("0");
+        printf("0\n");
         return;
     }
-    printf("\nArray which deleted a[%d] = %d:\n",k,a[k]);
+    printf("1\nArray which deleted a[%d] = %d:\n",k,a[k]);
     FOR(i,k,n)
         a[k]=a[++k];
     printArr(a,--n);
@@ -100,7 +100,7 @@ void bai5(int *a, int n){
     if (d>=0) printf("Max negative element: %d\nIndex: ",max);
     FOR (i,0,n)
         if (a[i]==max&&a[i]<0) printf("%d ",i);
-    
+    printf("\n");
 }
 
 int main(){
