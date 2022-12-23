@@ -24,7 +24,6 @@ bool isPrime(int x){
     if (x<2) return 0;
     if (x<4) return 1;
     FOR(i,2,sqrt(x)+1){
-        std::cout<<i<<endl;
         if (x%i==0) return 0;
     }
     return 1;
@@ -52,9 +51,9 @@ void inputNCheck(char &ch, bool &re, string s, bool cond){
 
 void bai1(int a[], int n){
     int d=0;
-    for (int i=0; i<n; i++){
+    FOR(i,0,n){
         if (isPrime(a[i])){
-            printf("a[%d] = %d\n",i,a[i]);
+            PRINT(a,i);
             d++;
         }
     }
@@ -73,7 +72,7 @@ void bai3(int *a, int &n){
         printf("0");
         return;
     }
-    printf("1\nArray which deleted a[%d]:\n",k);
+    printf("\nArray which deleted a[%d] = %d:\n",k,a[k]);
     FOR(i,k,n)
         a[k]=a[++k];
     printArr(a,--n);
@@ -83,7 +82,7 @@ void bai4(int *a, int n){
     int max=*a, d=1;
     FOR(i,1,n)
         max=a[i]>max? a[i]: max;
-    printf("Phan tu lon nhat: %d\nVi tri: ",max);
+    printf("Max element: %d\nIndex: ",max);
     FOR (i,0,n)
         if (a[i]==max) printf("%d ",i);
     printf("\n");
