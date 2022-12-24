@@ -39,14 +39,14 @@ void inputNCheck(int &x, string s, bool cond){
     if (cond) return;
     cout<<s;
     cin>>x;
-    inputNCheck(x,s,(x>=-1&&x<=5));
+    inputNCheck(x,s,(x>=0&&x<=5));
 }
-void inputNCheck(char &ch, bool &re, string s, bool cond){
+void inputNCheck(string &ch, bool &re, string s, bool cond){
     if (cond) return;
     cout<<s;
     cin>>ch;
-    re=ch=='Y'||ch=='y';
-    inputNCheck(ch,re,s,(ch=='Y'||ch=='y'||ch=='N'||ch=='n'));
+    re=ch=="Y"||ch=="y";
+    inputNCheck(ch,re,s,(ch=="Y"||ch=="y"||ch=="N"||ch=="n"));
 }
 
 void bai1(int a[], int n){
@@ -90,9 +90,9 @@ void bai4(int *a, int n){
 
 void bai5(int *a, int n){
     int max=0, d=-1;
-    FOR(i,1,n)
+    FOR(i,0,n)
         if (a[i]<0)
-            if (d==-1||-a[i]<max){
+            if (d==-1||a[i]>max){
                 max=a[i];
                 d=i;
             }
@@ -109,11 +109,12 @@ int main(){
     enterArr(a,n);
     do{
         int f;
-        char ch;
+        string ch;
         bool reEnter;
-        inputNCheck(ch,reEnter,"\nDo you want to re-enter array? (Press [Y]-Yes, [N]-No): ",0);
+        printf("\n");
+        inputNCheck(ch,reEnter,"Do you want to re-enter array? (Press [Y]-Yes, [N]-No): ",0);
         if (reEnter) enterArr(a,n);
-        inputNCheck(f,"Choose function you want to run: [1->5] (Press [0] to exit, [-1] to print array): ",0);
+        inputNCheck(f,"Choose function you want to run: [1->5] (Press [0] to print array, [Others] to exit): ",0);
         switch (f){
             case 1:
                 bai1(a,n);
